@@ -23,4 +23,13 @@ public class AgentDataController {
         return agentDataRepository.findAll();
     }
 
+    @RequestMapping("/agentdata/jpa/{name}")
+    public List<AgentData> findByAgentName(@PathVariable String name) {
+        return agentDataRepository.findByAgentName(name);
+    }
+
+    @RequestMapping("/agentdata/query/{name}")
+    public List<AgentData> findAgentByName(@PathVariable String name) {
+        return agentDataRepository.findAgentByName(name);
+    }
 }
