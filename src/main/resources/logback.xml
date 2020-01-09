@@ -1,0 +1,38 @@
+<configuration scan="false" scanPeriod="60 seconds" debug="false">
+    <contextName>SND Logback</contextName>
+
+    <property name="log.dir" value="/Users/neux/IdeaProjects/Java-Spring-Sample"/>
+
+    <!--ConsoleAppender-->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <!--layout-->
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%d -1 %msg%n</pattern>
+        </layout>
+    </appender>
+
+
+    <!--RollingFileAppender-->
+    <appender name="rollingLog" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <FileNamePattern>${log.dir}/logger.%d{yyyy-MM-dd}.%i.log</FileNamePattern>
+            <maxHistory>7</maxHistory>
+            <maxFileSize>5MB</maxFileSize>
+            <totalSizeCap>3000MB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <charset>UTF-8</charset>
+            <pattern>%d [%thread] %-5level %logger{36} %line - %msg%n</pattern>
+        </encoder>
+
+    </appender>
+
+
+    <logger name="com.neux.spring" level="TRACE" additivity="false">
+        <appender-ref ref="rollingLog"/>
+    </logger>
+
+    <root level="TRACE">
+        <appender-ref ref="console"/>
+    </root>
+</configuration>
