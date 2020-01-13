@@ -20,8 +20,8 @@ public class BeanController {
     @Autowired
     private BeanFactory beanFactory;
 
-//    @Autowired
-//    private SampleComponent defaultComponent;
+    @Autowired
+    private SampleComponent defaultComponent;
 
     @RequestMapping("/bean/service")
     public Date test1() {
@@ -55,14 +55,14 @@ public class BeanController {
         return prototypeComponent.getName();
     }
 
-//    @RequestMapping("/bean/defaultByAutowired")
-//    public String test6() {
-//        return defaultComponent.getName();
-//    }
+    @RequestMapping("/bean/defaultByAutowired")
+    public String test6() {
+        return defaultComponent.getName();
+    }
 //
-//    @RequestMapping("/bean/defaultByAutowired/{name}")
-//    public String test7(@PathVariable("name") String name) {
-//        defaultComponent.setName(name);
-//        return defaultComponent.getName();
-//    }
+    @RequestMapping("/bean/defaultByAutowired/{name}")
+    public String test7(@PathVariable("name") String name) {
+        defaultComponent.setName(name);
+        return defaultComponent.getName();
+    }
 }

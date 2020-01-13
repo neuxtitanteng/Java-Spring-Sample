@@ -5,11 +5,11 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Scope(value = "prototype")
-public class DefaultComponent implements SampleComponent{
+public class DefaultComponent2 implements SampleComponent{
     private String name = null;
 
     public String getName() {
-        return "DefaultComponent="+name;
+        return "DefaultComponent2="+name;
     }
 
     public void setName(String name) {
