@@ -10,6 +10,7 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
@@ -36,6 +37,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 //掃瞄POJO的路徑
 @EntityScan(basePackages = {"com.neux.spring.jpa.model"})
+
+@EnableAsync
 
 @SpringBootApplication
 public class MainApplication extends SpringBootServletInitializer {
